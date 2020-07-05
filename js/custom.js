@@ -1,111 +1,51 @@
-// function *myGen(){
-//   yield 'generator function';
-// }
-//
-// let iterator = myGen();
-// console.log(iterator.next());
-// console.log(iterator.next());
-//
-// let GeneratorFunction = Object.getPrototypeOf(function*(){}).constructor;
-// let myGenFunction = new GeneratorFunction('value', 'yield value');
-// let myGenIterator = myGenFunction();
-//
-// console.log(myGenIterator.next());
-// console.log(myGenIterator.next());
-//
-//
-// function *numCount(){
-//   let count = 0;
-//   while (count < 5)
-//     yield count++;
-// }
-//
-// let irt = numCount();
-// console.log(irt.next());
-// console.log(irt.next());
-// console.log(irt.next());
-// console.log(irt.next());
-// console.log(irt.next());
-// console.log(irt.next());
-//
-// function *returnMSG(){
-//   var val = yield val;
-//   return val;
-// }
-//
-// let it = returnMSG();
-// console.log(it.next());
-// console.log(it.next('things'));
-// console.log(it.next());
-
-//
-// function *insideThrow(){
-//   while (true){
-//     try {
-//       yield 'inside try block';
-//     } catch(e){
-//       console.log('inside catch');
-//     }
-//   }
-// }
-//
-//
-// let it = insideThrow();
-// console.log(it.next());
-// console.log(it.throw(new Error('This is an error')));
-//
-// function *outsideThrow(){
-//   var value = yield value;
-//   return value;
-// }
-//
-// let it2 = outsideThrow();
-// console.log(it2.next());
-//
-// try{
-//   console.log(it2.next('outside try block'));
-//   console.log(it2.throw(new Error("A typical error")));
-// } catch(e) {
-//   console.log('Outside catch');
-// }
-//
-// let countdown = {
-//   max: 3,
-//   [Symbol.iterator](){
-//       return this;
-//   },
-//   next(){
-//     if (this.max == undefined) {
-//       this.max = max;
-//     } else if (this.max > -1) {
-//       return {value: this.max --};
-//     } else {
-//       return {done: true};
-//     }
-//   }
-// };
-//
-// for (let i of countdown){
-//   console.log(i);
-// }
+let characterName = "Pinky";
+let quote = `Same thing we do every night ${characterName}`;
+console.log(quote);
 
 
-let fibObj = {
-  one: 0,
-  two: 1,
-  temp: 0,
-  [Symbol.iterator](){
-    return this;
-  },
-  next(){
-    this.temp = this.two;
-    this.two = this.temp + this.one;
-    this.one = this.temp;
-    return {value: this.two}
-  }
+function countdown(stringLiteralArray, ...values){
+  console.log(stringLiteralArray);
+  console.log(stringLiteralArray[1]);
+  console.log(values);
+  console.log(values[0]);
+  console.log(values[1]);
 
+  let fullSentence = values[0] + stringLiteralArray[1] + values[1] + stringLiteralArray[2];
+  return fullSentence;
 }
 
-for (let i = 0; i < 1000; i++){
-  console.log(fibObj.next().value)
+let one = 1;
+let two = 2;
+let results = countdown `${one} Mississippi ${two} Mississippi`;
+console.log(results);
+
+
+let seriesOfWords = `This is line one\n This is line two \n This is line three`;
+console.log(seriesOfWords);
+
+let temp = `This is first
+second
+and third line.`;
+
+
+console.log(temp);
+
+function rawWithVars(stringArray, ...values){
+  console.log(stringArray.raw);
+  console.log(stringArray.raw[2]);
+  console.log(stringArray[2]);
 }
+
+let name1 = 'Luke';
+let name2 = 'Jessica';
+let name3 = 'Danny';
+let name4 = 'Matt';
+rawWithVars `${name1} Cage\n ${name2} Jones\n ${name3} Rand\n ${name4} Murdock`;
+
+
+let str = `Today is ${getToday()}`;
+function getToday(){
+  let myDate = new Date();
+  return myDate.getMonth() + 1 + '/' + myDate.getDate() + '/' + myDate.getFullYear();
+}
+console.log(str);
