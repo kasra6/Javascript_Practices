@@ -49,3 +49,14 @@ function getToday(){
   return myDate.getMonth() + 1 + '/' + myDate.getDate() + '/' + myDate.getFullYear();
 }
 console.log(str);
+
+
+
+function asynchronousEmulator(str){
+  const num = Math.floor(Math.random() * 1000);
+  srtTimeout(function(){
+    console.log(str);
+  }, num)
+}
+
+console.log(Math.floor(Math.random() * 1000));
