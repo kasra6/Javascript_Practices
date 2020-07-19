@@ -94,20 +94,37 @@
 //   ]).then(values => console.table(values));
 
 
-const rand = () => Math.floor(Math.random() * 1000);
+// const rand = () => Math.floor(Math.random() * 1000);
+//
+//
+// const tortoise = new Promise(function(resolve, reject){
+//   setTimeout(resolve, rand(), '🐢');
+// });
+//
+// const hare = new Promise(function(resolve, reject){
+//   setTimeout(resolve, rand(), '🐇');
+// });
+//
+// Promise.race([
+//   tortoise,
+//   hare
+// ]).then(function(value){
+//   console.log(value);
+// });
+//
+
+// function getAge(){
+//   "use strict";
+//   age = 21;
+//   console.log(age);
+//
+// }
+//
+// getAge();
 
 
-const tortoise = new Promise(function(resolve, reject){
-  setTimeout(resolve, rand(), '🐢');
-});
+const nums = [1,2,35,6,8,9,99,58];
 
-const hare = new Promise(function(resolve, reject){
-  setTimeout(resolve, rand(), '🐇');
-});
-
-Promise.race([
-  tortoise,
-  hare
-]).then(function(value){
-  console.log(value);
-});
+console.log(nums.filter(function(num){
+  return num > 20;
+}));
