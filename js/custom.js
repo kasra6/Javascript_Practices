@@ -128,3 +128,62 @@ const nums = [1,2,35,6,8,9,99,58];
 console.log(nums.filter(function(num){
   return num > 20;
 }));
+
+const items = ["list", "of", "words"];
+
+const stringLength = str => str.length;
+const bigWord = str => str.length >= 5;
+
+
+const onlyBigWords = items.filter(bigword);
+const wordLengths = items.map(stringLength);
+// const noWs = items.filter(function(el){
+//   return !el.match(/w/);
+// }).map(function(el){
+//   return el.toUpperCase();
+// })
+//
+// console.log(noWs);
+//
+// const countLength = items.filter(function(el){
+//   return el.length < 5;
+// }).reduce(function(result, value){
+//   result[value.length] += 1;;
+//   return result;
+// },Array(5).fill(0));
+//
+// console.log(countLength);
+
+// items.map(function(el, index, array){
+//   return array[index + 1];
+// });
+//
+// items.filter(function(el, index, array){
+//   return index < 2;
+// });
+//
+// items.reduce(function(result, el, index, array){
+//   const nextEl = array[index + 1] || "";
+//   return result + (ele.length - nextEl.length);
+// }, 0);
+
+
+
+// console.log(items.map(function(el){
+//   return el.length;
+// }));
+//
+// const wordLengths = items.reduce( function(result, element){
+//   result[element] = element.length;
+//   return result;
+// }, {});
+// console.log(wordLengths);
+//
+// const words = ["This", "are", "words"];
+//
+// const lengths = words.reduce(function(result, element){
+//   result[element] = element.length;
+//   return result;
+// }, {});
+//
+// console.log(lengths);
