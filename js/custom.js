@@ -1,189 +1,27 @@
-// let characterName = "Pinky";
-// let quote = `Same thing we do every night ${characterName}`;
-// console.log(quote);
-//
-//
-// function countdown(stringLiteralArray, ...values){
-//   console.log(stringLiteralArray);
-//   console.log(stringLiteralArray[1]);
-//   console.log(values);
-//   console.log(values[0]);
-//   console.log(values[1]);
-//
-//   let fullSentence = values[0] + stringLiteralArray[1] + values[1] + stringLiteralArray[2];
-//   return fullSentence;
-// }
-//
-// let one = 1;
-// let two = 2;
-// let results = countdown `${one} Mississippi ${two} Mississippi`;
-// console.log(results);
-//
-//
-// let seriesOfWords = `This is line one\n This is line two \n This is line three`;
-// console.log(seriesOfWords);
-//
-// let temp = `This is first
-// second
-// and third line.`;
-//
-//
-// console.log(temp);
-//
-// function rawWithVars(stringArray, ...values){
-//   console.log(stringArray.raw);
-//   console.log(stringArray.raw[2]);
-//   console.log(stringArray[2]);
-// }
-//
-// let name1 = 'Luke';
-// let name2 = 'Jessica';
-// let name3 = 'Danny';
-// let name4 = 'Matt';
-// rawWithVars `${name1} Cage\n ${name2} Jones\n ${name3} Rand\n ${name4} Murdock`;
-//
-//
-// let str = `Today is ${getToday()}`;
-// function getToday(){
-//   let myDate = new Date();
-//   return myDate.getMonth() + 1 + '/' + myDate.getDate() + '/' + myDate.getFullYear();
-// }
-// console.log(str);
-//
-//
-//
-// const asynchronousEmulator = str => {
-//   return new Promise((resolve, reject) => {
-//     const rand = Math.floor(Math.random() * 1000);
-//
-//     setTimeout(() => {
-//       console.log(str);
-//       resolve();
-//       reject();
-//     }, rand)
-//   });
-//
-// }
-//
-// const ordinalNumbers = () => {
-//   asynchronousEmulator("First")
-//   .then(() => asynchronousEmulator("Second"))
-//   .then(() => asynchronousEmulator("third"))
-//   .catch(() => "Something went wrong...");
-// };
-//
-// ordinalNumbers();
-//
-//
+let mySym1 = Symbol('This is my first symbol');
+let mySym2 = Symbol() //returns false
+
+console.log(mySym1 == mySym2);
+console.log(mySym1.toString());
+
+let characterObj = {};
+let dad = Symbol();
+
+characterObj.name = 'Kasra';
+characterObj.lastname = 'k6';
+characterObj.age = '28';
+characterObj[dad] = 'Mr. Robot';
+
+console.log(Object.keys(characterObj));
 
 
-// const promise = str => {
-//   return new Promise((resolve, reject) => {
-//   setTimeout(() => {
-//     typeof str === 'string' ? resolve(str) : reject(str);
-//   }, 300);
-// });
-// }
-//
-//
-// Promise
-//   .all([
-//     promise("First").catch(err => console.log(err)),
-//     promise(42).catch(err => console.log(err)),
-//     promise("third").catch(err => console.log(err))
-//   ]).then(values => console.table(values));
+let player1 = Symbol.for('player1');
 
+console.log(Symbol.for('player1') == player1);
 
-// const rand = () => Math.floor(Math.random() * 1000);
-//
-//
-// const tortoise = new Promise(function(resolve, reject){
-//   setTimeout(resolve, rand(), '🐢');
-// });
-//
-// const hare = new Promise(function(resolve, reject){
-//   setTimeout(resolve, rand(), '🐇');
-// });
-//
-// Promise.race([
-//   tortoise,
-//   hare
-// ]).then(function(value){
-//   console.log(value);
-// });
-//
+let player2 = Symbol.for('player2');
+console.log(Symbol.for('player2') == player2);
 
-// function getAge(){
-//   "use strict";
-//   age = 21;
-//   console.log(age);
-//
-// }
-//
-// getAge();
-
-
-const nums = [1,2,35,6,8,9,99,58];
-
-console.log(nums.filter(function(num){
-  return num > 20;
-}));
-
-const items = ["list", "of", "words"];
-
-const stringLength = str => str.length;
-const bigWord = str => str.length >= 5;
-
-
-const onlyBigWords = items.filter(bigword);
-const wordLengths = items.map(stringLength);
-// const noWs = items.filter(function(el){
-//   return !el.match(/w/);
-// }).map(function(el){
-//   return el.toUpperCase();
-// })
-//
-// console.log(noWs);
-//
-// const countLength = items.filter(function(el){
-//   return el.length < 5;
-// }).reduce(function(result, value){
-//   result[value.length] += 1;;
-//   return result;
-// },Array(5).fill(0));
-//
-// console.log(countLength);
-
-// items.map(function(el, index, array){
-//   return array[index + 1];
-// });
-//
-// items.filter(function(el, index, array){
-//   return index < 2;
-// });
-//
-// items.reduce(function(result, el, index, array){
-//   const nextEl = array[index + 1] || "";
-//   return result + (ele.length - nextEl.length);
-// }, 0);
-
-
-
-// console.log(items.map(function(el){
-//   return el.length;
-// }));
-//
-// const wordLengths = items.reduce( function(result, element){
-//   result[element] = element.length;
-//   return result;
-// }, {});
-// console.log(wordLengths);
-//
-// const words = ["This", "are", "words"];
-//
-// const lengths = words.reduce(function(result, element){
-//   result[element] = element.length;
-//   return result;
-// }, {});
-//
-// console.log(lengths);
+let sym1 = Symbol.for('player3');
+console.log(Symbol.keyFor(sym1));
+console.log(Symbol.keyFor(player2));
