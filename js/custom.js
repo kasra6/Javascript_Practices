@@ -1,136 +1,60 @@
-// ECMA 5 class definition
-let Human = (
-  function Human(name){
-    this.name = name;
-  }
-)
-Human.prototype.sayGoodNight = function(){
-  return 'Say Goodnight ' + this.name;
-}
+// function loadFunction(){
+//   console.log('The dom has been loaded');
+// }
+//
+// document.addEventListener('DOMContentLoaded', loadFunction);
+//
+//
+// function assignListeneres(){
+//   let divs = document.getElementsByTagName('div');
+//   for (let i = 0; i < divs.length; i++){
+//     divs[i].addEventListener('click', showID, true);
+//     divs[i].addEventListener('click', showID, false);
+//   }
+// }
+//
+//
+// function showID(evt){
+//   console.log(evt);
+//   alert(evt.currentTarget.id);
+// }
 
-let goerge = new Human('Gracie');
-console.log(goerge.sayGoodNight());
+// document.addEventListener('DOMContentLoaded', assignListeneres, false);
 
-//Class definition in ECMA 6
-class Greeting{
-  constructor(name){
-    this.name = name;
-  }
-  sayHello(){
-    return 'Helooo ' + this.name;
-  }
-}
 
-let yokko = new Greeting('Nurse!');
-console.log(yokko.sayHello());
+// let myEvent = new Event('finished');
+// let myAnotherEvent = new CustomEvent('done', {'detail': 'done looping!'});
+//
+// document.addEventListener('finished', function(evt){
+//   console.log("finished event called");
+// });
+//
+// document.addEventListener('done', function(evt){
+//   console.log(evt.detail);
+// });
+//
+// for (let j = 0; j < 100; j++){
+//   if (j == 99){
+//     document.dispatchEvent(myEvent);
+//     document.dispatchEvent(myAnotherEvent);
+//   }
+// }
 
-//ES 5 class creation
-function Show(name, network){
-  this.name = name;
-  this.network = network;
-}
 
-Show.prototype.getShowName = function getShowName(){
-  return this.name; //added to the show prototype it now has access to its properties
-}
+let textField = document.getElementsByTagName("input");
+let isListening = true;
 
-Show .prototype.getShowNetwork = function getShowNetwork(){
-  return this.Network;
-}
-
-let gravityFalls = new Show('Gravity Falls', 'Disnry XD');
-console.log(gravityFalls.getShowName());
-console.log(gravityFalls.getShowNetwork());
-Show.prototype.getShowNetwork = function getShowNetwork(){
-  return 'On my TV!';
-};
-
-console.log(gravityFalls.getShowNetwork());
-console.log(Show.prototype);
-
-//ES 6 class creation
-class MyTVShow{
-  constructor(name, netwrork){
-    this.name = name;
-    this.network = network;
-  }
-
-  getShowName(){
-    return this.show;
-  }
-
-  getShowNetwork(){
-    return this.network;
+function changeMessage(e){
+  if (isListening){
+    isListening = !isListening;
+    document.removeEventListener('click', changeMessage);
+    textField[0].value = 'Event Listener = ' + isListening;
   }
 }
 
-console.log(MyTVShow.prototype);
-
-
-class Cookies{
-  constructor(){
-    this._typeOfCookie;
-  }
-  set cookieType(typeOfCookie){
-    this._typeOfCookie = typeOfCookie;
-  }
-  get CookieType(){
-    return this._typeOfCookie;
-  }
+function setupDoc(evt){
+  textField[0].value = 'eventListener = true';
+  document.addEventListener('click', changeMessage);
 }
 
-let myCookie = new Cookies();
-myCookie.cookieType = "Chocolate Chip";
-
-console.log(myCookie.cookieType);
-console.log(myCookie._typeOfCookie);
-
-class Robot{
-  constructor(){
-    this.type;
-  }
-}
-
-class BendingUnit extends Robot{
-  constructor(){
-    super();
-    this.name;
-    this.occupaion = 'Industrial Robot';
-    this.origin = 'Tijuana, Mexico';
-  }
-}
-
-class AstdromechDroid extends Robot{
-  constructor(){
-    super();
-    this.name;
-  }
-}
-
-let bender = new BendingUnit();
-bender.type = 'Bending Unit 22';
-bender.name = 'Bender Bending Rodriguez';
-
-console.log(bender.type);
-console.log(bender.name);
-
-let r2d2 = new AstdromechDroid();
-r2d2.type = 'Astromech Droid';
-r2d2.name = 'R2-D2';
-
-console.log(r2d2.type);
-console.log(r2d2.name);
-
-class Human1{
-  constructor(){
-  }
-  static hasLegs(){
-    return 'person has legs';
-  }
-  static hasArms(){
-    return 'person has arms';
-  }
-}
-
-console.log(Human1.hasLegs());
-console.log(Human1.hasArms());
+document.addEventListener('DOMContentLoaded', setupDoc);
